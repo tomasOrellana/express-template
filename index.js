@@ -1,11 +1,8 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const product = require("./api/index.js");
 
-app.use(express.json({ extended: false }));
+app.get('/api', (req, res) => {
+  res.send({ message: 'Hello from Express API' });
+});
 
-app.use("/api", product);
-
-const PORT = process.env.PORT || 8000;
-
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(3000, () => console.log('Express server running on port 3000'));
